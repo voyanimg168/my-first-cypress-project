@@ -7,8 +7,7 @@ describe('Delete Contact Tests', () => {
     cy.addContact(random)
 
     cy.contains('Test' + random + ' User').click()
-    cy.get('#delete').click()
-    cy.on('window:confirm', () => true) // Automatically confirm the delete dialog
+    cy.deleteContact() 
     cy.get('.contactTableBodyRow').contains('Test' + random + ' User').should('not.exist')
   })
 })
